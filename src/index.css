@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Soft Red Primary - CHANGED TO HSL(350, 70%, 50%) */
+    /* Soft Red Primary Theme (Light Mode) */
     --background: 0 0% 100%;
     --foreground: 0 0% 20%;
 
@@ -18,20 +18,19 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 20%;
 
-    /* PRIMARY COLOR CHANGE START (Soft Red) */
-    --primary: 350 70% 50%; /* Main soft red color */
+    /* PRIMARY COLOR: Soft Red */
+    --primary: 350 70% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 350 70% 75%; /* Lighter soft red for gradients */
-    /* PRIMARY COLOR CHANGE END */
+    --primary-light: 350 70% 75%;
 
     /* Light Blue Background */
     --secondary: 210 40% 98%;
-    --secondary-foreground: 350 70% 50%; /* Updated to use new primary for contrast */
+    --secondary-foreground: 350 70% 50%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    /* Healing Teal Accent - #6FCF97 (Keeping as is) */
+    /* Healing Teal Accent - #6FCF97 */
     --accent: 146 62% 71%;
     --accent-foreground: 0 0% 20%;
 
@@ -40,16 +39,11 @@ All colors MUST be HSL.
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 350 70% 50%; /* Ring color updated to new primary red */
+    --ring: 350 70% 50%;
 
     --radius: 0.75rem;
 
-    /* Gradients (Updated to use new soft red HSL values) */
-    --gradient-primary: linear-gradient(135deg, hsl(350 70% 50%), hsl(350 70% 75%));
-    --gradient-hero: linear-gradient(135deg, hsl(350 70% 50%), hsl(146 62% 71%));
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
-
-    /* Shadows (Updated to use the new soft red's RGB: 217, 38, 38) */
+    /* Shadows (Updated to use the new soft red's RGB for consistency) */
     --shadow-sm: 0 1px 2px 0 rgba(217, 38, 38, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(217, 38, 38, 0.1), 0 2px 4px -1px rgba(217, 38, 38, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(217, 38, 38, 0.1), 0 4px 6px -2px rgba(217, 38, 38, 0.05);
@@ -57,9 +51,12 @@ All colors MUST be HSL.
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* GRADIENT VARIABLES REMOVED */
   }
 
   .dark {
+    /* Soft Red Primary Theme (Dark Mode) */
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
 
@@ -69,11 +66,10 @@ All colors MUST be HSL.
     --popover: 222 47% 15%;
     --popover-foreground: 210 40% 98%;
 
-    /* PRIMARY COLOR CHANGE START (Soft Red Dark Mode) */
-    --primary: 350 70% 55%; /* Slightly brighter soft red for dark backgrounds */
+    /* PRIMARY COLOR: Soft Red Dark Mode */
+    --primary: 350 70% 55%;
     --primary-foreground: 0 0% 100%;
     --primary-light: 350 70% 75%;
-    /* PRIMARY COLOR CHANGE END */
 
     --secondary: 217 33% 18%;
     --secondary-foreground: 210 40% 98%;
@@ -89,12 +85,9 @@ All colors MUST be HSL.
 
     --border: 217 33% 18%;
     --input: 217 33% 18%;
-    --ring: 350 70% 55%; /* Ring color updated to new dark primary red */
+    --ring: 350 70% 55%;
 
-    /* Gradients (Updated to use new soft red HSL values) */
-    --gradient-primary: linear-gradient(135deg, hsl(350 70% 55%), hsl(350 70% 75%));
-    --gradient-hero: linear-gradient(135deg, hsl(350 70% 55%), hsl(146 62% 65%));
-    --gradient-card: linear-gradient(180deg, hsl(222 47% 15%), hsl(217 33% 18%));
+    /* GRADIENT VARIABLES REMOVED */
   }
 }
 
@@ -113,17 +106,7 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  .gradient-primary {
-    background: var(--gradient-primary);
-  }
-
-  .gradient-hero {
-    background: var(--gradient-hero);
-  }
-
-  .gradient-card {
-    background: var(--gradient-card);
-  }
+  /* GRADIENT UTILITIES REMOVED */
 
   .shadow-elegant {
     box-shadow: var(--shadow-lg);
@@ -137,7 +120,6 @@ All colors MUST be HSL.
     @apply transition-smooth hover:-translate-y-1 hover:shadow-xl;
   }
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
-  }
+  /* .text-gradient is removed as it relies on a gradient, 
+     use the standard 'text-primary' Tailwind class instead. */
 }
