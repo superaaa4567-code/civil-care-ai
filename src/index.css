@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Soft Red Primary Theme (Light Mode) */
+    /* Soft Red Primary - CHANGED TO HSL(350, 70%, 50%) */
     --background: 0 0% 100%;
     --foreground: 0 0% 20%;
 
@@ -18,19 +18,20 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 20%;
 
-    /* PRIMARY COLOR: Soft Red */
-    --primary: 350 70% 50%;
+    /* PRIMARY COLOR CHANGE START (Soft Red) */
+    --primary: 350 70% 50%; /* Main soft red color */
     --primary-foreground: 0 0% 100%;
-    --primary-light: 350 70% 75%;
+    --primary-light: 350 70% 75%; /* Lighter soft red for gradients */
+    /* PRIMARY COLOR CHANGE END */
 
-    /* Light Background */
+    /* Light Blue Background */
     --secondary: 210 40% 98%;
-    --secondary-foreground: 350 70% 50%;
+    --secondary-foreground: 350 70% 50%; /* Updated to use new primary for contrast */
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    /* Accent Teal */
+    /* Healing Teal Accent - #6FCF97 (Keeping as is) */
     --accent: 146 62% 71%;
     --accent-foreground: 0 0% 20%;
 
@@ -39,11 +40,16 @@ All colors MUST be HSL.
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 350 70% 50%;
+    --ring: 350 70% 50%; /* Ring color updated to new primary red */
 
     --radius: 0.75rem;
 
-    /* Shadows (Uses soft red RGB: 217, 38, 38) */
+    /* Gradients (Updated to use new soft red HSL values) */
+    --gradient-primary: linear-gradient(135deg, hsl(350 70% 50%), hsl(350 70% 75%));
+    --gradient-hero: linear-gradient(135deg, hsl(350 70% 50%), hsl(146 62% 71%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+
+    /* Shadows (Updated to use the new soft red's RGB: 217, 38, 38) */
     --shadow-sm: 0 1px 2px 0 rgba(217, 38, 38, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(217, 38, 38, 0.1), 0 2px 4px -1px rgba(217, 38, 38, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(217, 38, 38, 0.1), 0 4px 6px -2px rgba(217, 38, 38, 0.05);
@@ -54,7 +60,6 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Soft Red Primary Theme (Dark Mode) */
     --background: 222 47% 11%;
     --foreground: 210 40% 98%;
 
@@ -64,10 +69,11 @@ All colors MUST be HSL.
     --popover: 222 47% 15%;
     --popover-foreground: 210 40% 98%;
 
-    /* PRIMARY COLOR: Soft Red Dark Mode */
-    --primary: 350 70% 55%;
+    /* PRIMARY COLOR CHANGE START (Soft Red Dark Mode) */
+    --primary: 350 70% 55%; /* Slightly brighter soft red for dark backgrounds */
     --primary-foreground: 0 0% 100%;
     --primary-light: 350 70% 75%;
+    /* PRIMARY COLOR CHANGE END */
 
     --secondary: 217 33% 18%;
     --secondary-foreground: 210 40% 98%;
@@ -83,7 +89,12 @@ All colors MUST be HSL.
 
     --border: 217 33% 18%;
     --input: 217 33% 18%;
-    --ring: 350 70% 55%;
+    --ring: 350 70% 55%; /* Ring color updated to new dark primary red */
+
+    /* Gradients (Updated to use new soft red HSL values) */
+    --gradient-primary: linear-gradient(135deg, hsl(350 70% 55%), hsl(350 70% 75%));
+    --gradient-hero: linear-gradient(135deg, hsl(350 70% 55%), hsl(146 62% 65%));
+    --gradient-card: linear-gradient(180deg, hsl(222 47% 15%), hsl(217 33% 18%));
   }
 }
 
@@ -102,6 +113,18 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
   .shadow-elegant {
     box-shadow: var(--shadow-lg);
   }
@@ -113,6 +136,8 @@ All colors MUST be HSL.
   .hover-lift {
     @apply transition-smooth hover:-translate-y-1 hover:shadow-xl;
   }
-  
-  /* Gradient utility classes have been removed. */
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
 }
