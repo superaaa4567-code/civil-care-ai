@@ -23,14 +23,14 @@ All colors MUST be HSL.
     --primary-foreground: 0 0% 100%;
     --primary-light: 350 70% 75%;
 
-    /* Light Blue Background */
+    /* Light Background */
     --secondary: 210 40% 98%;
     --secondary-foreground: 350 70% 50%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    /* Healing Teal Accent - #6FCF97 */
+    /* Accent Teal */
     --accent: 146 62% 71%;
     --accent-foreground: 0 0% 20%;
 
@@ -43,7 +43,7 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    /* Shadows (Updated to use the new soft red's RGB for consistency) */
+    /* Shadows (Uses soft red RGB: 217, 38, 38) */
     --shadow-sm: 0 1px 2px 0 rgba(217, 38, 38, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(217, 38, 38, 0.1), 0 2px 4px -1px rgba(217, 38, 38, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(217, 38, 38, 0.1), 0 4px 6px -2px rgba(217, 38, 38, 0.05);
@@ -51,8 +51,6 @@ All colors MUST be HSL.
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    
-    /* GRADIENT VARIABLES REMOVED */
   }
 
   .dark {
@@ -86,8 +84,6 @@ All colors MUST be HSL.
     --border: 217 33% 18%;
     --input: 217 33% 18%;
     --ring: 350 70% 55%;
-
-    /* GRADIENT VARIABLES REMOVED */
   }
 }
 
@@ -106,8 +102,6 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* GRADIENT UTILITIES REMOVED */
-
   .shadow-elegant {
     box-shadow: var(--shadow-lg);
   }
@@ -119,7 +113,6 @@ All colors MUST be HSL.
   .hover-lift {
     @apply transition-smooth hover:-translate-y-1 hover:shadow-xl;
   }
-
-  /* .text-gradient is removed as it relies on a gradient, 
-     use the standard 'text-primary' Tailwind class instead. */
+  
+  /* Gradient utility classes have been removed. */
 }
